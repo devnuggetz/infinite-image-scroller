@@ -5,6 +5,9 @@ import {
 
 const initState = {
   images: [],
+  loading: true,
+  query: "",
+  searchImages: [],
 };
 
 export default function (state = initState, action) {
@@ -13,14 +16,19 @@ export default function (state = initState, action) {
       const { data } = action;
       return {
         ...state,
-        images: data,
+        images: [...state.images, ...data],
+        loading: false,
       };
     }
     case SET_SEARCH_IMAGES: {
+      console.log(action);
       const { data } = action;
       return {
         ...state,
-        images: data,
+        searchImages: [...state.searchImages, ...data],
+        images: state.searchImages,
+        loading: false,
+        query: action.query,
       };
     }
     default: {

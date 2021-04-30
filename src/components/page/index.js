@@ -7,6 +7,7 @@ import {
   getSearchImages,
 } from "../../redux-store/actions/global";
 import SearchBar from "../searchBar";
+import Grid from "../grid";
 
 const Page = (props) => {
   useEffect(() => {
@@ -15,6 +16,7 @@ const Page = (props) => {
   return (
     <div className="page">
       <SearchBar />
+      <Grid />
     </div>
   );
 };

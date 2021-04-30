@@ -24,9 +24,10 @@ export const setInitialImages = (data) => {
   };
 };
 
-export const setSearchImages = (data) => {
+export const setSearchImages = (data, query) => {
   return {
     type: SET_SEARCH_IMAGES,
     data,
+    query,
   };
 };

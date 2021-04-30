@@ -38,7 +38,7 @@ async function searchImagesRequest(query) {
 function* getSearchImagesSaga(action) {
   console.log(action.query);
   const result = yield call(searchImagesRequest, action.query);
-  yield put(setSearchImages(result));
+  yield put(setSearchImages(result, action.query));
 }
 
 function* initialSaga() {
