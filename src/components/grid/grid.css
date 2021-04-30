@@ -1,15 +1,33 @@
-.image-grid {
+.brick {
+  margin: 0;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: minmax(50px, auto);
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
 }
-.image-grid .image-item:nth-child(5n) {
-  grid-column-end: span 2;
+
+.container {
+  column-count: 3;
+  column-gap: 12px;
 }
-.image-grid img {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.brick > img {
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 1023px) {
+  .container {
+    column-count: 2;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .container {
+    column-count: 3;
+  }
 }

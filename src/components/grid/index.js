@@ -6,6 +6,7 @@ import {
   getSearchImages,
 } from "../../redux-store/actions/global";
 import "./grid.css";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 function Grid(props) {
   const getMore = () => {
@@ -16,29 +17,31 @@ function Grid(props) {
     }
   };
   return (
-    <InfiniteScroll
-      dataLength={props.images.length}
-      next={() => getMore()}
-      hasMore={true}
-      loader={
-        <p style={{ textAlign: "center", marginTop: "1%" }}>
-          More doggo incoming 🐕 🐕...
-        </p>
-      }
-    >
-      <div className="image-grid">
-        {!props.loading
-          ? props.images.map((image) => (
-              <div className="image-item" key={image.id}>
-                <img
-                  src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
-                  alt={image.title}
-                />
-              </div>
-            ))
-          : ""}
-      </div>
-    </InfiniteScroll>
+    <div style={{ width: "70%" }}>
+      <InfiniteScroll
+        dataLength={props.images.length}
+        next={() => getMore()}
+        hasMore={true}
+        loader={
+          <p style={{ textAlign: "center", marginTop: "1%" }}>
+            More doggo incoming 🐕 🐕...
+          </p>
+        }
+      >
+        <div className="container">
+          {!props.loading
+            ? props.images.map((image) => (
+                <div className="brick" key={image.id}>
+                  <img
+                    src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+                    alt={image.title}
+                  />
+                </div>
+              ))
+            : ""}
+        </div>
+      </InfiniteScroll>
+    </div>
   );
 }
 
