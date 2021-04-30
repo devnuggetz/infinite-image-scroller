@@ -20,7 +20,7 @@ export default function (state = initState, action) {
       const { data } = action;
       return {
         ...state,
-        topGainers: data,
+        images: data,
       };
     }
     default: {

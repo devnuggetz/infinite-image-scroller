@@ -1,17 +1,25 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import "./page.css";
 
-import { getInitialImages } from "../../redux-store/actions/global";
+import {
+  getInitialImages,
+  getSearchImages,
+} from "../../redux-store/actions/global";
+import SearchBar from "../searchBar";
 
 const Page = (props) => {
   useEffect(() => {
     props.getInitialImages();
   }, []);
-  return <div>THis is page</div>;
+  return (
+    <div className="page">
+      <SearchBar />
+    </div>
+  );
 };
 
 const mapStateToProps = ({ global }) => {
-  console.log(global);
   return {
     images: global.images,
   };
@@ -19,6 +27,7 @@ const mapStateToProps = ({ global }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getInitialImages: () => dispatch(getInitialImages()),
+    getSearchImages: (e) => dispatch(getSearchImages(e)),
   };
 };
 

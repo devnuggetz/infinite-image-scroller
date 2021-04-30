@@ -1,18 +1,19 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import global from "../reducers/global";
-import { globalSaga } from "../sagas/global";
+import rootSaga from "../sagas/global";
 
-const sagas = function* sagas() {
-  yield* globalSaga();
-};
+// const sagas = function* sagas() {
+//   yield* globalSaga();
+// };
 const rootReducer = combineReducers({
   global: global,
 });
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(sagas);
+const enhancer = applyMiddleware(sagaMiddleware);
+const store = createStore(rootReducer, enhancer);
+sagaMiddleware.run(rootSaga);
 
 // Exports
 export { store };

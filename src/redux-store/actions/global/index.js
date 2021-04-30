@@ -4,6 +4,12 @@ import {
   SET_INITIAL_IMAGES,
   SET_SEARCH_IMAGES,
 } from "../../actionTypes/global";
+export const getSearchImages = (query) => {
+  return {
+    type: GET_SEARCH_IMAGES,
+    query,
+  };
+};
 
 export const getInitialImages = () => {
   return {
@@ -15,13 +21,6 @@ export const setInitialImages = (data) => {
   return {
     type: SET_INITIAL_IMAGES,
     data,
-  };
-};
-
-export const getSearchImages = (query) => {
-  return {
-    type: GET_SEARCH_IMAGES,
-    query,
   };
 };
 
