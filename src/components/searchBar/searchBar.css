@@ -5,6 +5,12 @@
 }
 
 input {
-  background-color: grey;
+  background-color: #eaeaea;
   width: 100%;
+  padding: 12px;
+  padding-left: 24px;
+  border: none;
+  border-radius: 24px;
+  margin: 24px 0px;
+  outline: none;
 }

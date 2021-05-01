@@ -12,7 +12,7 @@ function SearchBar(props) {
   return (
     <div className="searchBar">
       <input
-        placeholder="Enter your query"
+        placeholder="Search free high resolution photos"
         value={query}
         onChange={handleChange}
       />

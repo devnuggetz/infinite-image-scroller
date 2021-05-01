@@ -1,6 +1,7 @@
 import {
   SET_INITIAL_IMAGES,
   SET_SEARCH_IMAGES,
+  SET_SEARCH_NEXT_IMAGES,
 } from "../../actionTypes/global";
 
 const initState = {
@@ -16,19 +17,27 @@ export default function (state = initState, action) {
       const { data } = action;
       return {
         ...state,
-        images: [...state.images, ...data],
+        images: state.images.concat(data),
         loading: false,
       };
     }
     case SET_SEARCH_IMAGES: {
       console.log(action);
       const { data } = action;
+      const temp = [...state.searchImages, ...data];
       return {
         ...state,
-        searchImages: [...state.searchImages, ...data],
-        images: state.searchImages,
+        images: data,
         loading: false,
         query: action.query,
+      };
+    }
+    case SET_SEARCH_NEXT_IMAGES: {
+      const { data } = action;
+      return {
+        ...state,
+        images: [...state.images, ...data],
+        loading: false,
       };
     }
     default: {
