@@ -1,16 +1,14 @@
 # Infinite Image Scroller
 
-`Problem Statement - Communication App for the Deaf-Blind`
-
 <p align="center">
-  <img src="./image1.png" alt="screenshot-4" width="600">
+  <img src="./assets/image1.png" alt="screenshot-4" width="600">
   
  
 </p>
 <p align="center">
   
-  <img src="./image2.png" alt="screenshot-1" width="400">
-  <img src="./image3.png" alt="screenshot-2" width="200">
+  <img src="./assets/image2.png" alt="screenshot-1" width="400">
+  <img src="./assets/image3.png" alt="screenshot-2" width="200">
  
 </p>
 
